@@ -15,7 +15,7 @@
       if (!img) continue;
       matches = a.href.match(/imgurl=(\S+\.gif)/i);
       if (matches !== null && matches.length > 1)
-        img.src = gifUrlMatches[1];
+        img.src = matches[1];
     }
   }
 
