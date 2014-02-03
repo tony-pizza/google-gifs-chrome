@@ -1,0 +1,19 @@
+{
+  "name": "GoogleGIFs",
+  "version": "1.0",
+  "description": "Play Animated GIFs in Google Images results",
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/search*tbm=isch*"],
+      "js": ["script.js"]
+    }
+  ],
+
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  },
+
+  "manifest_version": 2
+}
