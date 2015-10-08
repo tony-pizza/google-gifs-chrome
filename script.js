@@ -4,7 +4,7 @@
 (function () {
 
   function playGIFs() {
-    var els, i, a, img, matches;
+    var els, i, a, img, matches, url;
     els = document.getElementsByClassName('rg_di');
     for (i = 0; i < els.length; i++) {
       if (els[i].animated) continue;
@@ -13,9 +13,13 @@
       if (!a) continue;
       img = els[i].getElementsByTagName('img')[0];
       if (!img) continue;
-      matches = a.href.match(/imgurl=(\S+\.gif)/i);
-      if (matches !== null && matches.length > 1)
-        img.src = matches[1];
+      matches = a.href.match(/imgurl=(\S+?)(&|$)/i);
+      if (matches !== null && matches.length > 1) {
+        url = unescape(unescape(matches[1]));
+        if (/\.gif(\?.*)?$/i.test(url)) {
+          img.src = url;
+        }
+      }
     }
   }
 
